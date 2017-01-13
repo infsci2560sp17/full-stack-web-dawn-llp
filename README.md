@@ -5,11 +5,11 @@ TODO : Please provide a detailed project description.
 ## Build status
 
 TODO : Modify to match your project specific Travis Build
-[![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web)
+[![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-dawn-llp.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-dawn-llp)
 
 ## Web Site
 
-TODO : Please provide a link to your web site ![](https://...)
+TODO : Please provide a link to your web site ![](https://obscure-wave-64798.herokuapp.com/)
 
 ## Key Features
 
