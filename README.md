@@ -1,7 +1,28 @@
-# TODO : Your Project Name
+# ColorSense
 
-TODO : Please provide a detailed project description.
-
+1. What is the proposed name for your Web application?
+    - ColorSense
+2. Who is the target audience for your Web application?
+    - Ordinary people who want to have better color match in daily life(choosing clothes etc) or work(design keynote/ppt etc).
+3. What problem is it intended to solve for the target audience?
+    - When you go out for an important meeting, do you get the right color tie? When you prepare a PPT or Keynote, do you select a good palette for your topic? 
+    People might say color match is so complicate that only fashion designers care. And even designers take months to study a lot palettes to decide their ideal ones.
+    - Inspired by the way that professional designers study palettes, I want to present people a service recommending them "good" palette based on their pictures.
+    Extract colors of user-upload pictures, compare them with good palette dataset, rate them with similarity of a good palette, show similar palette recommendation.
+    - Learning from similar "good" palette, people can adjust their color selection with a little effort and get a big improvement in terms of color match.
+4. How will it meet the minimum project requirements?
+    - Users need to create their account to use the service.
+    - Users upload their pictures to get similar palette recommendation. These records are stored for them.
+    - Users can delete past uploads.
+    - Probably use 3rd party API to extract image property.
+    - Probably use 3rd party API to import "good" palette examples.
+    - Show recommendation result to users by self-defined functions. 
+5. Why is your proposed Web application unique or creative beyond simply meeting the minimum requirements?
+     - My site recommends palettes to users according to their original works. First, people get a simple start. 
+     No hassles to study good palettes, or fashion magzines, or label the colar values. Just take a picture, upload it and wait for recommendations.
+     Second, they get improving suggestion based on their original works. They do not need to change a lot to get a good match.
+     
+     
 ## Build status
 
 Done : Modify to match your project specific Travis Build
@@ -10,13 +31,14 @@ Done : Modify to match your project specific Travis Build
 ## Web Site
 
 Done : Please provide a link to your web site !
+![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/logo1.png)
 <br>(https://obscure-wave-64798.herokuapp.com/)
 
 ## Key Features
 
 TODO : Please list key features of your project.
 
-* Key Feature 1
+* Key Feature 1 
 * Key Feature 2
 * Key Feature N
 
