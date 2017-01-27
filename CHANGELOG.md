@@ -25,6 +25,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Deployed to Heroku.
 - Push to github.
 
-[v1.2]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2...v1.2.1
+[v1.2.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2...v1.2.1
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.1...v1.2
 [v1.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/...v1.1
