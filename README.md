@@ -28,11 +28,13 @@
 Done : Modify to match your project specific Travis Build
 <br>[![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-dawn-llp.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-dawn-llp)
 
-## Web Site
+## Changelog
 
+[Changelog](CHANGELOG.md)
+
+## Web Site
 Done : Please provide a link to your web site !
-<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/logo1.png)
-<br>(https://obscure-wave-64798.herokuapp.com/)
+<br>![ColorSense](https://obscure-wave-64798.herokuapp.com/)
 
 ## Key Features
 
