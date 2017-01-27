@@ -34,7 +34,7 @@ Done : Modify to match your project specific Travis Build
 
 ## Web Site
 Done : Please provide a link to your web site !
-<br>![ColorSense](https://obscure-wave-64798.herokuapp.com/)
+<br>[ColorSense](https://obscure-wave-64798.herokuapp.com/)
 
 ## Key Features
 
