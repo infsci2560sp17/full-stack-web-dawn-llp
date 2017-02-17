@@ -9,13 +9,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [v1.3.1] - 2017-02-16
 ### Rename
-- PictureService --> PicturesService
-- PictureController --> PicturesController
-- https://obscure-wave-64798.herokuapp.com/ --> https://colorsense.herokuapp.com/
+- PictureService -> PicturesService
+- PictureController -> PicturesController
+- https://obscure-wave-64798.herokuapp.com/ -> https://colorsense.herokuapp.com/
+
 ### Modified
 - Picture.java
     - Add set and get method for all parameters
-    - Capitalize the name of parameter in get/set function name, eg getimgURL() --> getImgURL()
+    - Capitalize the name of parameter in get/set function name, eg getimgURL() -> getImgURL()
 - pictures.html
     - Separate image upload part from addPicForm
     
@@ -31,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
     - PictureService.java
 - templates
     - pictures.html
+
 ### Modified
 - MvcConfig.java
     - add viewer "pictures"
