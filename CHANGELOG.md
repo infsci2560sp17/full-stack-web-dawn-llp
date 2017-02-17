@@ -6,7 +6,38 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 ### Added
 - TBD.
+
+## [v1.3.1] - 2017-02-16
+### Rename
+- PictureService --> PicturesService
+- PictureController --> PicturesController
+- https://obscure-wave-64798.herokuapp.com/ --> https://colorsense.herokuapp.com/
+### Modified
+- Picture.java
+    - Add set and get method for all parameters
+    - Capitalize the name of parameter in get/set function name, eg getimgURL() --> getImgURL()
+- pictures.html
+    - Separate image upload part from addPicForm
     
+## [v1.3] - 2017-02-09
+### Add based on Teacher's templates
+- Model
+    - Picture.java
+- Controller
+    - PictureController.java
+- Repository
+    - PictureRepository.java
+- Service
+    - PictureService.java
+- templates
+    - pictures.html
+### Modified
+- MvcConfig.java
+    - add viewer "pictures"
+- home.html
+    - direct to "pictures"
+    
+   
 ## [v1.2.1] - 2017-01-26
 ### Modified
 - CHANGELOG.md
@@ -30,7 +61,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Push to github.
 
 
-[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.3.1...HEAD
+[v1.3.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.3...v1.3.1
+[v1.3]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2.1...v1.3
 [v1.2.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2...v1.2.1
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.1...v1.2
 [v1.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/...v1.1
