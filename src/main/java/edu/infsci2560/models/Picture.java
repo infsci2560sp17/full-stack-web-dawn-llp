@@ -45,17 +45,17 @@ public class Picture {
     }
    
     //full parameter constructor
-    public Picture(Long id, String url1, String colors1,
-            String title, String authors, String colors2,
-            String url2, String rates) {
+    public Picture(Long id, String imgURL, String imgColors,
+            String paletteTitle, String author, String paletteColors,
+            String paletteURL, String rating) {
         this.id = id;
-        this.imgURL = url1;
-        this.imgColors = colors1;
-        this.paletteTitle = title;
-        this.author = authors;
-        this.paletteColors = colors2;
-        this.paletteURL = url2;
-        this.rating = rates;
+        this.imgURL = imgURL;
+        this.imgColors = imgColors;
+        this.paletteTitle = paletteTitle;
+        this.author = author;
+        this.paletteColors = paletteColors;
+        this.paletteURL = paletteURL;
+        this.rating = rating;
     }
 
     @Override
@@ -145,7 +145,8 @@ public class Picture {
       public void setAuthor(String author) {
         this.author=author;
     }
-                public String getRating()
+    
+      public String getRating()
     {
         return this.rating;
     }
