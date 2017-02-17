@@ -25,29 +25,29 @@ public class Picture {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     protected String imgURL;
-    protected String imgColors[];
+    protected String imgColors;
     protected String paletteTitle;
     protected String author;
-    protected String paletteColors[];
+    protected String paletteColors;
     protected String paletteURL;
-    protected double rating;
+    protected String rating;
     
     //0 parameter constructor
     public Picture() {
         this.id = Long.MAX_VALUE;
         this.imgURL = null;
-        this.imgColors = new String[6];
+        this.imgColors = null;
         this.paletteTitle = null;
-        this.author = "unknown";
-        this.paletteColors = new String[6];
+        this.author = null;
+        this.paletteColors = null;
         this.paletteURL = null;
-        this.rating = 0.0;
+        this.rating = null;
     }
    
     //full parameter constructor
-    public Picture(Long id, String url1, String[] colors1,
-            String title, String authors, String[] colors2,
-            String url2, double rates) {
+    public Picture(Long id, String url1, String colors1,
+            String title, String authors, String colors2,
+            String url2, String rates) {
         this.id = id;
         this.imgURL = url1;
         this.imgColors = colors1;
@@ -84,7 +84,7 @@ public class Picture {
     /**
      * @return palette of the image
      */
-    public String[] getimgColors()
+    public String getimgColors()
     {
         return this.imgColors;
     }
@@ -98,9 +98,9 @@ public class Picture {
      * @param url2  for palette url
      * @param rates for palette rating
      */
-    public void setimgProperties(String url1, String[] colors1,
-            String title, String authors, String[] colors2,
-            String url2, double rates)
+    public void setimgProperties(String url1, String colors1,
+            String title, String authors, String colors2,
+            String url2, String rates)
     {
 //        use 3rd party API to get imgColors, imgURL ,paletteTitle;
 //    ,author,paletteColors[];paletteURL;
