@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/public/api/pictures")
-public class PictureService {
+public class PicturesService {
 
     @Autowired
     private PictureRepository repository;

@@ -29,7 +29,7 @@ public class Picture {
     protected String paletteTitle;
     protected String author;
     protected String paletteColors;
-    protected String paletteURL;
+    protected String paletteSource;
     protected String rating;
     
     //0 parameter constructor
@@ -40,21 +40,21 @@ public class Picture {
         this.paletteTitle = null;
         this.author = null;
         this.paletteColors = null;
-        this.paletteURL = null;
+        this.paletteSource = null;
         this.rating = null;
     }
    
     //full parameter constructor
     public Picture(Long id, String imgURL, String imgColors,
             String paletteTitle, String author, String paletteColors,
-            String paletteURL, String rating) {
+            String paletteSource, String rating) {
         this.id = id;
         this.imgURL = imgURL;
         this.imgColors = imgColors;
         this.paletteTitle = paletteTitle;
         this.author = author;
         this.paletteColors = paletteColors;
-        this.paletteURL = paletteURL;
+        this.paletteSource = paletteSource;
         this.rating = rating;
     }
 
@@ -110,14 +110,14 @@ public class Picture {
         this.imgColors=imgColors;
     }
     
-       public String getPaletteURL() {
-        return paletteURL;
+       public String getPaletteSource() {
+        return this.paletteSource;
     }
     
-    public void setPaletteURL(String paletteURL) {
-        this.paletteURL=paletteURL;
+    public void setPaletteSource(String paletteSource) {
+        this.paletteSource=paletteSource;
     }
-    /**
+    /*
      * @return palette of the image
      */
     public String getPaletteColors()

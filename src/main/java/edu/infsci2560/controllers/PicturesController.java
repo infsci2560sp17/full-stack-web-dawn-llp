@@ -25,7 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author kolobj lili8
  */
 @Controller
-public class PictureController {
+public class PicturesController {
     @Autowired
     private PictureRepository repository;
     
