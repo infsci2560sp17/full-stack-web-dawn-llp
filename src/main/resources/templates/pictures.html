@@ -19,7 +19,7 @@
                     <th>Palette Source</th>
                     <th>Rating</th>
                 </tr>                
-                <tr data-th-each="picture : ${pictures}''>
+                <!--<tr data-th-each="picture : ${pictures}">
                     <td data-th-text="${picture.id}"></td>
                     <td data-th-text="${picture.imgURL}"></td>
                     <td data-th-text="${picture.imgColors}"></td>
@@ -28,13 +28,13 @@
                     <td data-th-text="${picture.paletteColors}"></td>
                     <td data-th-text="${picture.paletteURL}"></td>
                     <td data-th-text="${picture.rating}"></td>
-                </tr>
+                </tr>-->
             </table>
         </div>
         
         <hr />
         Test New Picture<br />
-        <form data-th-action="@{/pictures/add}" name="addPicForm" method="post">
+       <!--<form data-th-action="@{/pictures/add}" name="addPicForm" method="post">
             imgURL: <input type="text" name="imgURL" /><br />
             imgColors: <input type="text" name="imgColors" /><br />
             PaletteTitle: <input type="text" name="paletteTitle" /><br />
@@ -43,8 +43,8 @@
             PaletteURL: <input type="text" name="paletteURL"/><br>
             rating: <input type="text" name="rating"/><br/>
             <input type="submit" value="SUMBIT"/>
-            <!--more work need to be done here-->
-        </form> 
+            
+        </form> -->
         <hr />   
         <input type="file" id="files" name="pic" accept="image/*"/>
             <br />
