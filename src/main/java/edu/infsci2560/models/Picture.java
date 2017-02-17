@@ -72,46 +72,7 @@ public class Picture {
     @Override
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this);
-    }
-
-    /**
-     * @return the imgURL
-     */
-    public String getimgURL() {
-        return imgURL;
-    }
-
-    /**
-     * @return palette of the image
-     */
-    public String getimgColors()
-    {
-        return this.imgColors;
-    }
-    
-    /**
-     * @param url1 for user picture url
-     * @param colors1 for user picture dominant colors, default 6
-     * @param title for palette title
-     * @param authors for palette author
-     * @param colors2  for palette colors
-     * @param url2  for palette url
-     * @param rates for palette rating
-     */
-    public void setimgProperties(String url1, String colors1,
-            String title, String authors, String colors2,
-            String url2, String rates)
-    {
-//        use 3rd party API to get imgColors, imgURL ,paletteTitle;
-//    ,author,paletteColors[];paletteURL;
-    imgURL=url1;
-    imgColors=colors1;
-    paletteTitle=title;
-    author=authors;
-    paletteColors=colors2;
-    paletteURL=url2;
-    rating=rates;  
-    }
+    } 
 
     /**
      * @return the id
@@ -126,5 +87,70 @@ public class Picture {
     public void setId(Long id) {
         this.id = id;
     }
-
+    
+        /**
+     * @return the imgURL
+     */
+    public String getImgURL() {
+        return imgURL;
+    }
+    
+    public void setImgURL(String imgURL) {
+        this.imgURL=imgURL;
+    }
+    /**
+     * @return palette of the image
+     */
+    public String getImgColors()
+    {
+        return this.imgColors;
+    }
+    
+      public void setImgColors(String imgColors) {
+        this.imgColors=imgColors;
+    }
+    
+       public String getPaletteURL() {
+        return paletteURL;
+    }
+    
+    public void setPaletteURL(String paletteURL) {
+        this.paletteURL=paletteURL;
+    }
+    /**
+     * @return palette of the image
+     */
+    public String getPaletteColors()
+    {
+        return this.paletteColors;
+    }
+    
+      public void setPaletteColors(String paletteColors) {
+        this.paletteColors=paletteColors;
+    }
+      
+        public String getPaletteTitle()
+    {
+        return this.paletteTitle;
+    }
+    
+      public void setPaletteTitle(String paletteTitle) {
+        this.paletteTitle=paletteTitle;
+    }
+          public String getAuthor()
+    {
+        return this.author;
+    }
+    
+      public void setAuthor(String author) {
+        this.author=author;
+    }
+                public String getRating()
+    {
+        return this.rating;
+    }
+    
+      public void setRating(String rating) {
+        this.rating=rating;
+    }
 }
