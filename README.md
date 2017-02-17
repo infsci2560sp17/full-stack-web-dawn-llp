@@ -33,7 +33,7 @@ Travis Build
 [Changelog](CHANGELOG.md)
 
 ## Web Site
-<br>[ColorSense](https://obscure-wave-64798.herokuapp.com/)
+<br>[ColorSense](https://colorsense.herokuapp.com/)
 
 ## Key Features
 
