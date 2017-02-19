@@ -59,16 +59,15 @@ TODO : please provide a description of at least 1 API including a sample of requ
 
 ### API Method 1
 
-    POST photos/:id/tags
+    POST public/api/pictures(/:id)
 
 #### Parameters
 
-- **id** _(required)_ — The Photo ID to add tags for.
-- **tags** _(required)_ — Comma separated tags.
+- **id** _(required)_ — The Photo ID for every upload.
 
 #### Response
 
-A JSON or XMLobject containing the PhotoID and list of tags accepted.
+A JSON or XMLobject containing the PhotoID and list of attributes.
 
 #### Errors
 
