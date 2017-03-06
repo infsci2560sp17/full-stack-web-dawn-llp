@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>User Home</title>
-        <!--<script type="text/javascript" src="demopic.js"></script>-->
+       <!-- <script type="text/javascript" src="jquery-1.11.1.min.js"></script> -->
     </head>
     <body>
         <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s palette!</h1>
@@ -27,13 +27,14 @@
                     <td data-th-text="${picture.author}"></td>
                     <td data-th-text="${picture.paletteColors}"></td>
                     <td data-th-text="${picture.paletteSource}"></td>
-                    <td data-th-text="${picture.rating}"></td><!-- -->
+                    <td data-th-text="${picture.rating}"></td>
                 </tr>
             </table>
         </div>
         
         <hr />
-        Test New Picture<br />
+        Test New Picture         
+            <br />
         <form data-th-action="@{/pictures/add}" name="addPicForm" method="post">
         imgURL: <input type="text" name="imgURL" /><br />
         imgColors: <input type="text" name="imgColors" /><br />
@@ -46,15 +47,20 @@
             <input type="submit" value="SUMBIT" />
         </form> 
         <hr />   
-        <input type="file" id="files" name="pic" accept="image/*"/>
-            <br />
-            <br /> 
-            <input type="submit" name="upbutton" value="Save"/>
-            <hr/>
+        <div>
+        <form action="goPic.php" method="post"
+enctype="multipart/form-data">
+    <input type="file" id="filechooser" name="pic"  accept="image/*" />
+    <input type = "submit" value="pic upload" />
+    </form>
+    <img alt="Image Previewer" id="previewer" />
+</div>
+<script>
+
+</script>
+    <hr />
         <form data-th-action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
-        
- 
-    </body>
+</body>
 </html>
