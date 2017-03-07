@@ -1,7 +1,7 @@
 package edu.infsci2560;
 
-import edu.infsci2560.models.Customer;
-import edu.infsci2560.repositories.CustomerRepository;
+import edu.infsci2560.models.Picture;
+import edu.infsci2560.repositories.PictureRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,9 @@ public class FullStackWebApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
-        CustomerRepository repository = ctx.getBean(CustomerRepository.class);
-        repository.save(new Customer("Balabla","Pony"));
+
+        PictureRepository repository = ctx.getBean(PictureRepository.class);
+        repository.save(new Picture(1L, "P90X", "#F23344","green","alex","#223355","xhtlm","4.5"));
     }
 
 //    @Bean
@@ -36,36 +37,36 @@ public class FullStackWebApplication {
 //        };
 //    }
 //    @Bean
- //   public CommandLineRunner databaseDemo(CustomerRepository repository) {
- //       return (args) -> {
-            // save a couple of customers
+//    public CommandLineRunner databaseDemo(CustomerRepository repository) {
+//        return (args) -> {
+//            // save a couple of customers
 //            repository.save(new Customer("Jack", "Bauer"));
- //           repository.save(new Customer("Chloe", "O'Brian"));
- //           repository.save(new Customer("Kim", "Bauer"));
- //           repository.save(new Customer("David", "Palmer"));
- //           repository.save(new Customer("Michelle", "Dessler"));
- //           repository.save(new Customer("Billy", "Bean"));
-
-            // fetch all customers
+//            repository.save(new Customer("Chloe", "O'Brian"));
+//            repository.save(new Customer("Kim", "Bauer"));
+//            repository.save(new Customer("David", "Palmer"));
+//            repository.save(new Customer("Michelle", "Dessler"));
+//            repository.save(new Customer("Billy", "Bean"));
+//
+//            // fetch all customers
 //            log.info("[Database Demo] Customers found with findAll():");
 //            log.info("[Database Demo] -------------------------------");
 //            for (Customer customer : repository.findAll()) {
 //                log.info("[Database Demo] " + customer.toString());
- //           }
- //           log.info("");
-
-            // fetch an individual customer by ID
+//            }
+//            log.info("");
+//
+//            // fetch an individual customer by ID
 //            Customer customer = repository.findOne(1L);
 //            log.info("[Database Demo] Customer found with findOne(1L):");
 //            log.info("[Database Demo] --------------------------------");
-//            log.info("[Database Demo] " + customer.toString());            
-
-            // fetch customers by last name
+//            log.info("[Database Demo] " + customer.toString());
+//
+//            // fetch customers by last name
 //            log.info("[Database Demo] Customer found with findByLastName('Bauer'):");
- //           log.info("[Database Demo] --------------------------------------------");
- //           for (Customer bauer : repository.findByLastName("Bauer")) {
+//            log.info("[Database Demo] --------------------------------------------");
+//            for (Customer bauer : repository.findByLastName("Bauer")) {
 //                log.info("[Database Demo] " + bauer.toString());
-//            }            
+//            }
 //        };
 //    }
 }
