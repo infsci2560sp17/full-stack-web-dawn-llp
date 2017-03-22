@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html>
+
     <head>
-        <title>Spring Security Example</title>
+        <title>LiPic</title>
     </head>
     <body>
     <div id="indexcontainer" style="width:800px; text-align:center; margin-left:auto; margin-right:auto; overflow:hidden;">
         <h1>LiPic</h1>
-        <h2>Create the best palette with your picture!</h2>
-        <form data-th-action="@{/pictaupload}" enctype="multipart/form-data" method="post">
+        <h2>Match the best palette for your picture from thousand online database!</h2>
+        <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
 
           <div>File:<input type="file" id="filechooser" name="image"/></div>
           <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"><img id="previewer" style="width:100%;"/></div>
-          <div><input type="submit" value="Create"/></div>
+          <div><input type="submit" value="MATCH"/></div>
 
         </form>
         <script>
 //document.write("js");
-var filechooser = document.getElementById('filechooser');
+    var filechooser = document.getElementById('filechooser');
     var previewer = document.getElementById('previewer');
 
-    // 200 KB 对应的字节数
-    var maxsize = 200 * 1024;
+    // 200 KB sizelimit
+    //var maxsize = 200 * 1024;
 
     filechooser.onchange = function() {
         var files = this.files;
@@ -32,58 +32,14 @@ var filechooser = document.getElementById('filechooser');
         var reader = new FileReader();
 
         reader.onload = function() {
-            var result = this.result;
-            var img = new Image();
-
-            img.onload = function() {
-                var compressedDataUrl = compress(img, file.type);
-                toPreviewer(compressedDataUrl);
-
-                img = null;
-            };
-
-            img.src = result;
+            previewer.src = this.result;
         };
 
         reader.readAsDataURL(file);
         
     };
 
-    function toPreviewer(dataUrl) {
-        previewer.src = dataUrl;
-
-    }
-
-    function compress(img, fileType) {
-        var canvas = document.createElement("canvas");
-        var ctx = canvas.getContext('2d');
-
-        var width = img.width;
-        var height = img.height;
-
-        canvas.width = width;
-        canvas.height = height;
-
-        ctx.fillStyle = "#fff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.drawImage(img, 0, 0, width, height);
-
-        // 压缩
-        var base64data = canvas.toDataURL(fileType, 0.75);
-
-        var initSize = img.src.length;
-        console.log('压缩前：', initSize);
-        console.log('压缩后：', base64data.length);
-        console.log('压缩率：', 100 * (initSize - base64data.length) / initSize, "%");
-
-        canvas = ctx = null;
-
-        return base64data;
-    }
-
 </script>
-
         <p>Click <a data-th-href="@{/picupload}">here</a> to login with histroy records</p>
      </div>   
     </body>
