@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result!!!!!</title>
+    <title>Resule From Picta</title>
 </head>
 <body>
 <table>
-<td>${Picata}</td>
-<td data-th-text="${Picata}"></td>
+<tr>
+  <td data-th-each="colors : ${liColors}">
+    <div data-th-style="|width:200px; height:120px; border-radius: 7px; border-style:solid; border-color:#808080; background-color:#${colors.color}|"></div>
+  </td>
+</tr>
 </table>
+
 </body>
 </html>

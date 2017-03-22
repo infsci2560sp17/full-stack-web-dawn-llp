@@ -15,5 +15,46 @@
             <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>
         </form>
+        
+        <script>
+//        document.write("hello");
+var filechooser = document.getElementById('filechooser');
+    var previewer = document.getElementById('previewer');
+
+    filechooser.onchange = function() {
+        var files = this.files;
+        var file = files[0];
+
+        // 接受 jpeg, jpg, png 类型的图片
+        if (!/\/(?:jpeg|jpg|png)/i.test(file.type)) return;
+
+        var reader = new FileReader();
+
+        reader.onload = function() {
+            var result = this.result;
+            var img = new Image();
+
+            img.onload = function() {
+                var compressedDataUrl = compress(img, file.type);
+                toPreviewer(compressedDataUrl);
+
+                img = null;
+            };
+
+            img.src = result;
+        };
+
+        reader.readAsDataURL(file);
+        reader.readAsBinaryString(file);
+        
+    };
+
+    function toPreviewer(dataUrl) {
+        previewer.src = dataUrl;
+
+        filechooser.value = '';
+    }
+
+        </script>
     </body>
 </html>
