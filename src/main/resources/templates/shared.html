@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LiPic-Result</title>
+        <title>LiPic</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <!-- jQuery library -->
@@ -20,8 +20,8 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="nav-item active"><a href="#">Test Picture</a></li>
-      <li class="nav-item"><a href="#">Shared Palette</a></li>
+      <li class="nav-item"><a href="#">Test Picture</a></li>
+      <li class="nav-item  active"><a href="#">Shared Palette</a></li>
       <li class="nav-item"><a href="#">Your Records</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -29,49 +29,35 @@
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
-    </nav>
-</div>
+</nav>
 	<div class="center-block" style="height:30px"></div>
-              <div class="col-md-3 column"></div>
-	 <div class="col-md-6 column">
-          <div id="imagepreview" class="jumbotron"><img id="previewer" class="img-responsive" style="height:250px"/></div>
-          <div><h4 class="text-center">Colors of Your Picture</h4></div>
-<div class="center-block" style="height:50px">
-<table>
-<tr>
-  <td data-th-each="colors : ${liColors}">
-    <div data-th-style="|width:200px; height:120px; border-radius: 7px; border-style:solid; border-color:#808080; background-color:#${colors.color}|"></div>
-  </td>
-</tr>
-</table>
-</div>
-
-	<div> <button class="btn btn-info btn-block">Save Your Result</button>
-	<button class="btn btn-default btn-block" onclick="{location.href='home.html'}">Test a New Picture</button> 
-	</div>
-<div class="center-block" style="height:40px"></div>
-<div class="center-block" style="height:80px">
-<h4 class="text-center">Recommend Palette</h4>
-<table>
-<tr>
-  <td data-th-each="colors : ${liColors}">
-    <div data-th-style="|width:200px; height:120px; border-radius: 7px; border-style:solid; border-color:#808080; background-color:#${colors.color}|"></div>
-  </td>
-</tr>
-</table>
-</div>
 <div>
-<h4 class="text-center">Select best similar palette for your picture from Kuler!
-			</h4>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Palette</th>
+        <th>Likes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-th-each="picture : ${pictures}">
+          <td data-th-text="${user.name}"></td>
+          <td data-th-each="colors : ${liColors}">
+    <div data-th-style="|width:200px; height:120px; border-radius: 7px; border-style:solid; border-color:#808080; background-color:#${colors.color}|"></div>
+  </td>
+        <td data-th-text="${user.name}"></td>
+      </tr>
+      </tbody>
+      </table>
 </div>
-
-<div class="center-block" style="height:100px"></div>
-         </div>
-				<div class="col-md-3 column">
+				<div class="col-md-2 column">
 				</div>
 
+           
+		</div>
 	</div>
         </div>
-        
+        </div>
  </body>
 </html>

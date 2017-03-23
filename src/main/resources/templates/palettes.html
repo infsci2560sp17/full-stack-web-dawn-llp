@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palettes</title>
+</head>
+<body>
+<div id="PalettesList">
+<p>Palette List:</p>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Kuler_Id</td>
+        <td>Cl_Id</td>
+        <td>Colors</td>
+        <td>Likes</td>
+        <td>Dislikes</td>
+        <td>Kuler_rating</td>
+        <td>Cl_rating</td>
+        <td>Author</td>
+        <td>DateCreated</td>
+        <td>FirstUser</td>
+    </tr>
+    <tr data-th-each="palette : ${palettes}">
+        <td data-th-text="${palette.id}"></td>
+        <td data-th-text="${palette.kuler_id}"></td>
+        <td data-th-text="${palette.cl_id}"></td>
+        <td>
+            <table>
+            <tr>
+                <td data-th-each="color : ${palette.colors}">
+                    <div class="color_block" data-th-style="|margin: 2px; border-radius: 2px; background-color:#${color};|">
+                        <span data-th-text="|#${color}|"></span>
+                    </div>
+                </td>
+            </tr>
+            </table>
+        </td>
+        <td data-th-text="${palette.numLikes}"></td>
+        <td data-th-text="${palette.numDislikes}"></td>
+        <td data-th-text="${palette.kuler_rating}"></td>
+        <td data-th-text="${palette.cl_rating}"></td>
+        <td data-th-text="${palette.author}"></td>
+        <td data-th-text="${palette.dateCreated}"></td>
+        <td data-th-text="${palette.userFirst}"></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>users</title>
+</head>
+<body>
+<div name="userList">
+<p>User List:</p>
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Password</td>
+    <td>Email</td>
+    <td>DateCreated</td>
+    <td>HistroyId</td>
+    <td>IsAdmin</td>
+  </tr>
+  <tr data-th-each="user : ${users}">
+     <td data-th-text="${user.id}"></td>
+     <td data-th-text="${user.name}"></td>
+     <td data-th-text="${user.password}"></td>
+     <td data-th-text="${user.email}"></td>
+     <td data-th-text="${user.dateCreated}"></td>
+     <td>
+        <table>
+            <tr data-th-each="history : ${user.historyId}">
+                <td><a data-th-href="@{|../palettes/${history}|}"><span data-th-text="${history}"></span></a></td>
+            </tr>
+        </table>
+     </td>
+     <td data-th-text="${user.isAdmin}"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

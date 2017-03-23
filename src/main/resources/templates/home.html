@@ -1,46 +1,72 @@
 <!DOCTYPE html>
-
+<html>
     <head>
         <title>LiPic</title>
-    </head>
-    <body>
-    <div id="indexcontainer" style="width:800px; text-align:center; margin-left:auto; margin-right:auto; overflow:hidden;">
-        <h1>LiPic</h1>
-        <h2>Match the best palette for your picture from thousand online database!</h2>
-        <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
-
-          <div>File:<input type="file" id="filechooser" name="image"/></div>
-          <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"><img id="previewer" style="width:100%;"/></div>
-          <div><input type="submit" value="MATCH"/></div>
-
-        </form>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+</head>
+<body>
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div><h1 class="text-center">
+				LiPic
+			</h1></div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="nav-item active"><a href="#">Test Picture</a></li>
+      <li class="nav-item"><a href="#">Shared Palette</a></li>
+      <li class="nav-item"><a href="#">Your Records</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+	<div class="center-block" style="height:50px"></div>
+<div class="col-md-3 column"></div>
+<div class="col-md-6 column">
+    <h4 class="text-center">
+    Get your picture's palette and grade it.  Are you ready?</h4>
+    <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
+                  <div><input type="file" id="filechooser" name="image" class="btn btn-default btn-block" /></div>
+              <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"><img id="previewer" alt="picture preview" style="width:100%;" /></div>
+    <div class="center-block" style="height:50px"></div>
+              <div> <button class="btn btn-info btn-block" type="submit">TEST</button> 
+    <h4 class="text-center">Select best similar palette for your picture from Kuler!</h4>
+    </div>
+    </form>
+</div>
+<div class="center-block" style="height:100px"></div>
+	<div class="col-md-3 column"></div>
+</div>
+    </div>
+    </div>
         <script>
 //document.write("js");
     var filechooser = document.getElementById('filechooser');
     var previewer = document.getElementById('previewer');
-
     // 200 KB sizelimit
     //var maxsize = 200 * 1024;
-
     filechooser.onchange = function() {
         var files = this.files;
         var file = files[0];
-
-        // 接受 jpeg, jpg, png 类型的图片
+        // accept jpeg, jpg, png 
         if (!/\/(?:jpeg|jpg|png)/i.test(file.type)) return;
-
         var reader = new FileReader();
-
         reader.onload = function() {
             previewer.src = this.result;
         };
-
         reader.readAsDataURL(file);
         
     };
-
 </script>
-        <p>Click <a data-th-href="@{/picupload}">here</a> to login with histroy records</p>
-     </div>   
-    </body>
+</body>
 </html>
