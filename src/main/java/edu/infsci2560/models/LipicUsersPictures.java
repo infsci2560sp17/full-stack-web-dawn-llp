@@ -15,26 +15,26 @@ public class LipicUsersPictures {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	protected String dateCreated;
 	protected Long paletteIdMatched;
-//	protected MultipartFile image;
+	protected String image;
 	protected String[] colors;
 	
 	public LipicUsersPictures(){
 		this.id = Long.MAX_VALUE;
 		this.dateCreated = null;
 		this.paletteIdMatched = null;
-//		this.image = null;
+		this.image = null;
 		this.colors = null;
 	}
 	                                                                           //MultipartFile image, 
-	public LipicUsersPictures( Long id, String dateCreated, Long paletteIdMatched, String[] colors){
+	public LipicUsersPictures( Long id, String dateCreated, Long paletteIdMatched, String image,  String[] colors){
 		this.id = id;
 		this.dateCreated = dateCreated;
 		this.paletteIdMatched = paletteIdMatched;
-//		this.image = image;
+		this.image = image;
 		this.colors = colors;
 	}
 	
@@ -53,10 +53,10 @@ public class LipicUsersPictures {
 		this.paletteIdMatched = paletteIdMatched;
 	}
 	
-//	public MultipartFile getImage() {return image;}
-//	public void setImage( MultipartFile image){
-//		this.image = image;
-//	}
+	public String getImage() {return image;}
+	public void setImage( String image){
+		this.image = image;
+	}
 	
 	public String[] getColors() {return colors;}
 	public void setColors( String[] colors) {

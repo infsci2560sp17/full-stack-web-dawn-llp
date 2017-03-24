@@ -14,7 +14,18 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.CloseableHttpClient;
 
+import edu.infsci2560.models.LipicPalettes;
+import edu.infsci2560.repositories.PalettesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import edu.infsci2560.models.PictaReqResult;
+
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class PictaCoordinator {
+
+	private PalettesRepository repository;
+	
     private String api = "http://pictaculous.com/api/1.0/";
     private int sizeMax = 200*1024;
     
@@ -27,17 +38,25 @@ public class PictaCoordinator {
         this.sizeMax = sizeMax;
     }
     
+	/*
     public PictaCoordinator(){
         this.api = "http://pictaculous.com/api/1.0/";
         this.sizeMax = 200*1024;
-    }
+    }*/
+	
+	public PictaCoordinator( PalettesRepository repository){
+		this.api = "http://pictaculous.com/api/1.0/";
+        this.sizeMax = 200*1024;
+		this.repository = repository;
+	}
     
-    public PictaCoordinator(String api, int sizeMax ){  //full constructor
+    public PictaCoordinator(String api, int sizeMax, PalettesRepository repository ){  //full constructor
         this.api = api;
         this.sizeMax = sizeMax;
+		this.repository = repository;
     }
     
-    public TpictaResp PostBinaryImage(MultipartFile image) throws Exception {
+    public PictaReqResult PostBinaryImage(MultipartFile image, Long currentUserId ) throws Exception {    //return recent LipicPalettes.id
             
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
             HttpPost post = new HttpPost(api); 
@@ -73,14 +92,30 @@ public class PictaCoordinator {
             
             String PictaResult = EntityUtils.toString(response.getEntity(), "UTF-8");
            
-           
             client.close(); //close httpclient
             
       //      if(response.getStatusLine().getStatusCode()==200){
             Gson gson = new Gson();
             TpictaResp pictaResp = gson.fromJson(PictaResult, TpictaResp.class); //json -> obj
             
-            return pictaResp;  // need to deal with error
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			
+			
+			LipicPalettes ResultPalette = new LipicPalettes(null,  //id
+												pictaResp.getKuler_themes().get(0).getId(), //kuler_id
+												"n/a",          //temp omit cl
+												pictaResp.getKuler_themes().get(0).getColors(), //colors
+												0,		//likes
+												0,		//dislikes
+												pictaResp.getKuler_themes().get(0).getRating(), //kuler_rating
+												"n/a",		//temp omit cl
+												pictaResp.getKuler_themes().get(0).getAuthor(), //
+												formatter.format(new Date()), //date
+												currentUserId);
+	
+											
+			return new PictaReqResult(repository.save( ResultPalette).getId(), pictaResp.getInfo().getColors());
+      //      return pictaResp;  // need to deal with error
       //      }
 
     }

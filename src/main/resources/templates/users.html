@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>users</title>
-</head>
-<body>
-<div name="userList">
-<p>User List:</p>
-<table>
-  <tr>
-    <td>Id</td>
-    <td>Name</td>
-    <td>Password</td>
-    <td>Email</td>
-    <td>DateCreated</td>
-    <td>HistroyId</td>
-    <td>IsAdmin</td>
-  </tr>
-  <tr data-th-each="user : ${users}">
-     <td data-th-text="${user.id}"></td>
-     <td data-th-text="${user.name}"></td>
-     <td data-th-text="${user.password}"></td>
-     <td data-th-text="${user.email}"></td>
-     <td data-th-text="${user.dateCreated}"></td>
-     <td>
-        <table>
-            <tr data-th-each="history : ${user.historyId}">
-                <td><a data-th-href="@{|../palettes/${history}|}"><span data-th-text="${history}"></span></a></td>
-            </tr>
-        </table>
-     </td>
-     <td data-th-text="${user.isAdmin}"></td>
-  </tr>
-</table>
-</div>
-</body>
+    <head>
+        <title>LiPic</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <div>
+          <h1 class="text-center">LiPic</h1>
+          </div>
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                <li class="nav-item"><a href="home.html">Test Picture</a></li>
+                <li class="nav-item"><a href="#">Shared Palette</a></li>
+                <li class="nav-item"><a href="#">Your Records</a></li>
+                <li class="nav-item  active"><a href="#">Community</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="center-block" style="height:30px"></div>
+          <div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>DateCreated</th>
+                <th>HistroyId</th>
+                <th>IsAdmin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-th-each="user : ${users}">
+                <td data-th-text="${user.id}"></td>
+                <td data-th-text="${user.name}"></td>
+                <td data-th-text="${user.password}"></td>
+                <td data-th-text="${user.email}"></td>
+                <td data-th-text="${user.dateCreated}"></td>
+                <td>
+                  <table>
+                    <tr data-th-each="history : ${user.historyId}">
+                      <td><a data-th-href="@{|../palettes/${history}|}"><span data-th-text="${history}"></span></a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td data-th-text="${user.isAdmin}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="center-block" style="height:100px"></div>
+      </div>
+    </div>
+  </div>
+ </body>
 </html>
+
