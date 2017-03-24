@@ -5,6 +5,8 @@
  */
 package edu.infsci2560.controllers;
 
+
+
 import edu.infsci2560.models.Picture;
 import edu.infsci2560.repositories.PictureRepository;
 import javax.validation.Valid;
@@ -30,7 +32,7 @@ public class PicturesController {
     private PictureRepository repository;
     
     @RequestMapping(value = "pictures", method = RequestMethod.GET)
-    public ModelAndView index() {        
+    public ModelAndView index() {
         return new ModelAndView("pictures", "pictures", repository.findAll());
     }
     
@@ -41,3 +43,5 @@ public class PicturesController {
     }
     
 }
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LiPic</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+    <body>
+        <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1 class="text-center">
+				LiPic
+			</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#">Test Picture</a></li>
+      <li class="nav-item active"><a href="#">Shared Palette</a></li>
+      <li class="nav-item"><a href="#">Your Records</a></li>
+      <li class="nav-item"><a href="#">Community</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+	<div class="center-block" style="height:30px"></div>
+<div><h3  class="text-center" data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s palettes</h3>
+<hr />
+</div>
+<div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Kuler_Id</th>
+        <th>Cl_Id</th>
+        <th>Colors</th>
+        <th>Likes</th>
+        <th>Dislikes</th>
+        <th>Kuler_rating</th>
+        <th>Cl_rating</th>
+        <th>Author</th>
+        <th>DateCreated</th>
+        <th>FirstUser</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-th-each="palette : ${palettes}">
+          <td data-th-text="${palette.id}"></td>
+          <td data-th-text="${palette.kuler_id}"></td>
+          <td data-th-text="${palette.cl_id}"></td>
+          <td>
+              <table>
+              <tr>
+                  <td data-th-each="color : ${palette.colors}">
+                      <div class="color_block" data-th-style="|margin: 2px; border-radius: 2px; background-color:#${color};|">
+                          <span data-th-text="|#${color}|"></span>
+                      </div>
+                  </td>
+              </tr>
+              </table>
+          </td>
+          <td data-th-text="${palette.numLikes}"></td>
+          <td data-th-text="${palette.numDislikes}"></td>
+          <td data-th-text="${palette.kuler_rating}"></td>
+          <td data-th-text="${palette.cl_rating}"></td>
+          <td data-th-text="${palette.author}"></td>
+          <td data-th-text="${palette.dateCreated}"></td>
+          <td data-th-text="${palette.userFirst}"></td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+	</div>
+        </div>
+      </div>
+ </body>
+</html>
