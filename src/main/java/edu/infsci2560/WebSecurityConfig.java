@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/about.html").permitAll()
+                .antMatchers("/", "/home", "/about.html","/api","/pictaupload","/PictaResult","/match","/users","/palettes","/files","/files/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -23,12 +23,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll();
+            
+        http.csrf().disable();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("1").password("1").roles("USER");
     }
 }
