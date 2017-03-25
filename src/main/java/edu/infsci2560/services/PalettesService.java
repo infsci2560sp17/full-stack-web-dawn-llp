@@ -40,9 +40,9 @@ public class PalettesService {
         return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
+  @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
     public ResponseEntity<LipicPalettes> create(@RequestBody LipicPalettes palette) {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.save(palette), headers, HttpStatus.OK);
-    }
+    } 
 }

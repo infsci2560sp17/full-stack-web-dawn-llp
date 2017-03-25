@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lili8
  */
 @RestController
-@RequestMapping("/public/api/palettes")
+@RequestMapping("/public/api/actions")
 public class ActionRecordService {
 
     @Autowired
@@ -41,8 +41,8 @@ public class ActionRecordService {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
-    public ResponseEntity<LipicReqActions> create(@RequestBody LipicReqActions palette) {
+    public ResponseEntity<LipicReqActions> create(@RequestBody LipicReqActions actions) {
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.save(palette), headers, HttpStatus.OK);
+        return new ResponseEntity<>(repository.save(actions), headers, HttpStatus.OK);
     }
 }

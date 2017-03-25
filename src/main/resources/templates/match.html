@@ -20,13 +20,14 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="nav-item active"><a href="#">Test Picture</a></li>
-      <li class="nav-item"><a href="#">Shared Palette</a></li>
-      <li class="nav-item"><a href="#">Your Records</a></li>
+    <li class="nav-item active"><a href="/home">Test Picture</a></li>
+      <li class="nav-item"><a href="/palettes">Shared Palette</a></li>
+      <li class="nav-item"><a href="/actions">Your Records</a></li>
+      <li class="nav-item"><a href="/users">Community</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
     </nav>
@@ -34,6 +35,10 @@
 	<div class="center-block" style="height:30px"></div>
               <div class="col-md-3 column"></div>
 	 <div class="col-md-6 column">
+     <div>
+   	<button class="btn btn-info btn-block" onclick="{location.href='home.html'}">Test a New Picture</button>
+   	</div>
+    <div class="center-block" style="height:30px"></div>
           <div id="imagepreview" class="jumbotron"><img data-th-src="|../files/${imageUrl}|" id="previewer" class="img-responsive" style="height:250px"/></div>
           <div><h4 class="text-center">Colors of Your Picture</h4></div>
 <div class="center-block" style="height:90px">
@@ -46,9 +51,6 @@
 </table>
 </div>
 
-	<div>
-	<button class="btn btn-info btn-block" onclick="{location.href='home.html'}">Test a New Picture</button>
-	</div>
 <div class="center-block" style="height:40px"></div>
 <div class="center-block" style="height:90px">
 <h4 class="text-center">Recommend Palette</h4>
@@ -69,16 +71,14 @@
           <a href="javascript:void(0)" onclick="like()"
             class="btn btn-default">
             <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </a>
-                <span th:text="{$LipicPalettes.numLikes}"></span>
+              <!--   <span data-th-text="{$lipicPalettes.numLikes}"></span> -->
             </a>
 </span>
 <span class="pull-right">
             <a href="javascript:void(0)" onclick="dislike()"
               class="btn btn-default">
               <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-            </a>
-                  <span th:text="{$LipicPalettes.numDislikes}"></span>
+               <!--  <span data-th-text="{$lipicPalettes.numDislikes}"></span>-->
               </a>
 </span>
 </div>
@@ -92,24 +92,17 @@
         </div>
 
 <script type="text/javascript">
-//rewite based on scripts from https://my.oschina.net/skyheng/blog/725421
+
             function like() {
-                $.ajax({
-                    url: '/updatelikes/{id}',
-                    type: 'POST',
-                    cache: false,
-                    timeout: 600000,
-                    data: JSON.stringify(LipicPalettes)
-                });
+              var xhttp = new XMLHttpRequest();
+              xhttp.open("GET", "/palettes/updatelikes/{id}", true);
+              xhttp.send();
             }
+
             function dislike() {
-                $.ajax({
-                    url: '/updatedislikes/{id}',
-                    type: 'POST',
-                    cache: false,
-                    timeout: 600000,
-                    data: JSON.stringify(LipicPalettes)
-                });
+              var xhttp = new XMLHttpRequest();
+              xhttp.open("GET", "/palettes/updatedislikes/{id}", true);
+              xhttp.send();
             }
 </script>
 
