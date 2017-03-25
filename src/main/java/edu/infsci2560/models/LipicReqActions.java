@@ -22,7 +22,7 @@ public class LipicReqActions {
 		}
 		
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	protected ActionType actionType;
 	protected String url;

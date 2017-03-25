@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.infsci2560.coordinator.PictaCoordinator;
 import edu.infsci2560.models.TpictaResp;
-import edu.infsci2560.models.LiColors;
+//import edu.infsci2560.models.LiColors;
 
 import edu.infsci2560.models.LipicPalettes;
 import edu.infsci2560.repositories.PalettesRepository;
@@ -27,6 +27,12 @@ import edu.infsci2560.storage.StorageService;
 import edu.infsci2560.models.LipicUsersPictures;
 import edu.infsci2560.repositories.UsersPicturesRepository;
 
+import edu.infsci2560.models.LipicReqActions;
+import edu.infsci2560.repositories.ReqActionsRepository;
+
+import javax.servlet.http.HttpServletRequest;
+import edu.infsci2560.models.LipicUsers;
+import edu.infsci2560.repositories.UsersRepository;
 
 import java.util.ArrayList;
 
@@ -34,9 +40,17 @@ import java.util.ArrayList;
 public class MatchServiceController {
 	
 	@Autowired
+	HttpServletRequest request;
+	@Autowired
 	private PalettesRepository palettesrepository;
 	@Autowired
 	private UsersPicturesRepository userspicturesrepository;
+	@Autowired
+	private ReqActionsRepository reqactionsrepository;
+	@Autowired
+	private UsersRepository usersrepository;
+	
+	
 	
 	private final StorageService storageService;
 
@@ -50,30 +64,51 @@ public class MatchServiceController {
         if (!image.isEmpty()){
 			
 			ModelAndView mv = new ModelAndView();
-            mv.setViewName("PicataResult");  
+            mv.setViewName("match"); 
 			
-            PictaCoordinator pc = new PictaCoordinator(palettesrepository);
-			PictaReqResult reqResult = pc.PostBinaryImage(image, new Long(10086));
+			Long remoteUserId = new Long(-1);
+			
+			if (request.getRemoteUser() == null){ //guest mode
+	//		    remoteUserId = new Long(-1);   //guest will be marked -1
+			    System.out.println("Guset Action");
+			} else {                         //someone logon
+			    remoteUserId = usersrepository.findByName(request.getRemoteUser()).get(0).getId();
+			    System.out.println("User Action, NAME="+ request.getRemoteUser()+ " ID=" + remoteUserId.toString());
+			}
+			
+			
+            PictaCoordinator pc = new PictaCoordinator(palettesrepository);                 //match picture via Picata
+			PictaReqResult reqResult = pc.PostBinaryImage(image, remoteUserId);
 			
 			mv.addObject("palettes",palettesrepository.findOne(reqResult.getPaletteId()));  //return palette info
 			mv.addObject("pictureColors",reqResult.getColors());							//return colors detected from user's picture
 			
 			//generate an unique image file name
 			//UUID uuid  =  UUID.randomUUID(); 
-			String uuidFile = UUID.randomUUID().toString() + image.getOriginalFilename();
+			String uuidFile = UUID.randomUUID().toString() +"-" + image.getOriginalFilename();
 			storageService.store(image, uuidFile);                       //save image
 			
 			mv.addObject("imageUrl",uuidFile);
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			
-			userspicturesrepository.save( new LipicUsersPictures( null, // save picture info  - id
+			Long pictureId = userspicturesrepository.save( new LipicUsersPictures( null, // save picture info  - id
 														formatter.format(new Date()), //dateCreated
 														reqResult.getPaletteId(),
 														uuidFile, 			//image file name
 														reqResult.getColors()
-														));
-			
+														)).getId();
+														
+		    SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		    
+			Long actionId = reqactionsrepository.save( new LipicReqActions( null,  // save action history -id
+			                                 LipicReqActions.ActionType.Match,   //type
+			                                 "n/a",                              //url used optional
+			                                 pictureId,                          //pictureId optional
+			                                 reqResult.getPaletteId(),           //paletteId optional
+			                                 formatter2.format(new Date()),      //timestamp
+			                                 remoteUserId                     //user id : guest is -1
+			                                 )).getId();
 			
 			
 			//mv.addObject("image",)

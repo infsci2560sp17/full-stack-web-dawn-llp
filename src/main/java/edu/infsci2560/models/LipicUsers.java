@@ -4,7 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 //import org.springframework.beans.factory.annotation.Autowired;
 	
 	
@@ -16,7 +17,7 @@ public class LipicUsers {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	protected String name;
 	protected String password;
@@ -33,6 +34,18 @@ public class LipicUsers {
 		this.dateCreated = null;
 		this.historyId = null;
 		this.isAdmin = false;
+	}
+	
+	public LipicUsers(String name, String password, String email){
+	    this.id = Long.MAX_VALUE;
+	    this.name = name;
+	    this.password = password;
+	    this.email = email;
+	    
+	    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    this.dateCreated = formatter.format(new Date());
+	    this.historyId = null;
+	    this.isAdmin = false;
 	}
 	
 	public LipicUsers(Long id, String name, String password, String email, String dateCreated, Long[] historyId, boolean isAdmin){

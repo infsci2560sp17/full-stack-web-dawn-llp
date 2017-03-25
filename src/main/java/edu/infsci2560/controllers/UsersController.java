@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,14 +43,29 @@ public class UsersController {
 
     
    //method = RequestMethod.GET
-    @RequestMapping(value = "users")
+    @RequestMapping(value = "users", method = RequestMethod.GET)
     public ModelAndView List() {
         return new ModelAndView("users", "users", repository.findAll());
     }
     
-    @RequestMapping(value = "/users/{id}")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public ModelAndView User(@PathVariable("id") Long id) {
         return new ModelAndView("users","users",repository.findOne(id));
+    }
+    
+    @RequestMapping(value = "/users/add" ,method = RequestMethod.POST)  //user sign up
+    public ModelAndView SignUp(@RequestParam("username") String username,
+                                @RequestParam("password") String password,
+                                @RequestParam("email") String email) {
+                                    
+        LipicUsers user = new LipicUsers(username,password,email);
+        return new ModelAndView("users", "users", repository.findOne(repository.save(user).getId()));
+    }
+    
+    @RequestMapping(value = "/users/delete/{id}")
+    public ModelAndView DeleteUserById(@PathVariable("id") Long id) {
+        repository.delete(id);
+        return new ModelAndView("users","users",repository.findAll());
     }
     
     

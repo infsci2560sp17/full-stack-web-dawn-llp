@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="actions-container">
+    <table style="width: 100%;">
+        <tr>
+            <td>Action Id</td>
+            <td>Action Type</td>
+            <td>Url(optional)</td>
+            <td>pictureId</td>
+            <td>paletteId</td>
+            <td>TimeStamp</td>
+            <td>OwnerId</td>
+        </tr>
+        <tr data-th-each="action : ${actions}">
+            <td data-th-text="${action.id}"></td>
+            <td data-th-text="${action.actionType}"></td>
+            <td data-th-text="${action.url}"></td>
+            <td data-th-text="${action.pictureId}"></td>
+            <td data-th-text="${action.palettesId}"></td>
+            <td data-th-text="${action.timeStamp}"></td>
+            <td data-th-text="${action.ownerId}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

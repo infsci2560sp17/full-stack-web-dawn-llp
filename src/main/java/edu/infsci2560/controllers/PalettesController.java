@@ -25,17 +25,22 @@ public class PalettesController {
     private PalettesRepository repository;
     
        //method = RequestMethod.GET
-    @RequestMapping(value = "palettes")
+    @RequestMapping(value = "palettes", method = RequestMethod.GET)
     public ModelAndView List() {
 //    public Iterable<LipicPalettes> List() {
 //        return repository.findAll();
         return new ModelAndView("palettes", "palettes", repository.findAll());
     }
     
-    @RequestMapping(value = "/palettes/{id}")
+    @RequestMapping(value = "/palettes/{id}", method = RequestMethod.GET)
     public ModelAndView Palette(@PathVariable("id") Long id) {
         return new ModelAndView("palettes","palettes",repository.findOne(id));
     }
     
+    @RequestMapping(value = "/palettes/delete/{id}")
+    public ModelAndView DeleteById(@PathVariable("id") Long id) {
+        repository.delete(id);
+        return new ModelAndView("palettes","palettes",repository.findAll());
+    }
     
 }

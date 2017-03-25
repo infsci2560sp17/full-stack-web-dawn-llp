@@ -18,9 +18,17 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.UUID;
+import edu.infsci2560.models.LipicUsersPictures;
+
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import edu.infsci2560.repositories.UsersPicturesRepository;
+
 
 @Controller
 public class FileUploadController {
+	@Autowired
+	private UsersPicturesRepository userspicturerepository;
 
     private final StorageService storageService;
 
@@ -54,12 +62,20 @@ public class FileUploadController {
     @RequestMapping(value = "files", method = RequestMethod.POST, consumes="multipart/form-data")
     public String handleFileUpload(@RequestParam("image") MultipartFile image,
                                    RedirectAttributes redirectAttributes) {
-                                       
-        //need add userspictureinfo
-        String uuidFile = UUID.randomUUID().toString() + image.getOriginalFilename();
+									   
+        // add userspictureinfo
+        String uuidFile = UUID.randomUUID().toString() +"-" + image.getOriginalFilename();
         storageService.store(image, uuidFile);
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		LipicUsersPictures picInfo = new LipicUsersPictures(null, 						//create picutre info - id
+														formatter.format(new Date()),	//dateCreated
+														new Long(0),					//palette Id
+														uuidFile,						//file 
+														new String[1]);				  //colors detected from picture
+		userspicturerepository.save(picInfo);		//save picture info									
+		
         redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + image.getOriginalFilename() + "!");
+                "You successfully uploaded " + uuidFile + "!");
 
         return "redirect:/files";
     }
