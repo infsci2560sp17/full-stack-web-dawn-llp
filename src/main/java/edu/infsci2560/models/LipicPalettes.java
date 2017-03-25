@@ -6,16 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@javax.persistence.SequenceGenerator(
-    name="paletteId",
-    sequenceName="paletteId"
-)
 public class LipicPalettes {
     
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paletteId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String kuler_id;
     private String cl_id;
@@ -87,7 +83,8 @@ public class LipicPalettes {
         this.numLikes = numLikes;
     }
     public int like(){
-        return(this.numLikes = this.numLikes + 1);
+        this.numLikes = this.numLikes + 1;
+        return numLikes;
     }
     
     public int getNumDislikes(){return numDislikes;}
@@ -95,7 +92,8 @@ public class LipicPalettes {
         this.numDislikes = numDislikes;
     }
     public int dislike(){
-        return(this.numDislikes = this.numDislikes + 1);
+        this.numDislikes = this.numDislikes + 1;
+        return numDislikes;
     }
     
     public String getKuler_rating() {return kuler_rating;}

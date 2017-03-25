@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 //import org.springframework.beans.annotation.AnnotationBeanUtils;
 //import org.thymeleaf.spring4.SpringTemplateEngine;
 //import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 //import org.springframework.web.servlet.ViewResolver;
 //import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
@@ -23,8 +23,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
        // registry.addViewController("/dvds").setViewName("dvds");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/pictures").setViewName("pictures");
-        registry.addViewController("/picupload").setViewName("picupload");
-        registry.addViewController("/PicataResult").setViewName("PicataResult");
      //   registry.addViewController("/actions").setViewName("actions");
         registry.addViewController("/history").setViewName("history");
         registry.addViewController("/users").setViewName("users");

@@ -68,18 +68,24 @@
 <div class="center-block" style="height:30px"></div>
 <h4 class="text-center">Do you like this palette? </h4>
 <span class="pull-left">
-          <a href="javascript:void(0)" onclick="like()"
-            class="btn btn-default">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              <!--   <span data-th-text="{$lipicPalettes.numLikes}"></span> -->
-            </a>
+          <button id="btnLike" type="button" class="btn btn-default" style="width:150px;">
+                <form> 
+                <span class="glyphicon glyphicon-thumbs-up"></span><span> Like</span>
+                <span id ="spanNumLikes" data-th-text="${palettes.numLikes}"></span>
+                <input id="ContainerNumLikes" type="hidden" data-th-value="${palettes.numLikes}"/>
+                <input id="ContainerLikeId" type="hidden" data-th-value="${palettes.id}"/>
+                </form>
+          </button>
 </span>
 <span class="pull-right">
-            <a href="javascript:void(0)" onclick="dislike()"
-              class="btn btn-default">
-              <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-               <!--  <span data-th-text="{$lipicPalettes.numDislikes}"></span>-->
-              </a>
+          <button id="btnDislike" type="button" class="btn btn-default" style="width:150px;">
+                <form> 
+                <span class="glyphicon glyphicon-thumbs-down"></span><span> Dislike</span>
+                <span id ="spanNumDislikes" data-th-text="${palettes.numDislikes}"></span>
+                <input id="ContainerNumDislikes" type="hidden" data-th-value="${palettes.numDislikes}"/>
+                <input id="ContainerDislikeId" type="hidden" data-th-value="${palettes.id}"/>
+                </form>
+          </button>
 </span>
 </div>
 
@@ -92,18 +98,34 @@
         </div>
 
 <script type="text/javascript">
+$(document).ready(function(){    //load when finish webpage reading
+    
+  $("#btnLike").click(function(){
+      $.ajax({
+		url: '../public/api/palettes/ajax/like/' + eval(document.getElementById('ContainerLikeId')).value,
+		data: "numLikes=" + eval(document.getElementById('ContainerNumLikes')).value, 
+		async: true,
+		success : function(data) {
+			$("#spanNumLikes").html(data.likes);
+			$("input#ContainerNumLikes").val(data.likes);
+		}
+	  });
+  });
 
-            function like() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.open("GET", "/palettes/updatelikes/{id}", true);
-              xhttp.send();
-            }
+  $("#btnDislike").click(function(){
+      $.ajax({
+		url: '../public/api/palettes/ajax/dislike/' + eval(document.getElementById('ContainerDislikeId')).value,
+		data: "numDislikes=" + eval(document.getElementById('ContainerNumDislikes')).value, 
+		async: true,
+		success : function(data) {
+			$("#spanNumDislikes").html(data.dislikes);
+			$("input#ContainerNumDislikes").val(data.dislikes);
+		}
+	  });
+  });
 
-            function dislike() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.open("GET", "/palettes/updatedislikes/{id}", true);
-              xhttp.send();
-            }
+ 
+});
 </script>
 
  </body>
