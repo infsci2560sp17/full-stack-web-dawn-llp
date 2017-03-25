@@ -37,7 +37,7 @@
     Get your picture's palette and grade it.  Are you ready?</h4>
     <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
                   <div><input type="file" id="filechooser" name="image" class="btn btn-default btn-block" /></div>
-              <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"><img id="previewer" alt="picture preview" style="width:100%;" /></div>
+              <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"></div>
     <div class="center-block" style="height:50px"></div>
               <div> <button class="btn btn-info btn-block" type="submit">TEST</button> 
     <h4 class="text-center">Select best similar palette for your picture from Kuler!</h4>
@@ -52,7 +52,7 @@
         <script>
 //document.write("js");
     var filechooser = document.getElementById('filechooser');
-    var previewer = document.getElementById('previewer');
+//    var previewer = document.getElementById('previewer');
     // 200 KB sizelimit
     //var maxsize = 200 * 1024;
     filechooser.onchange = function() {
@@ -62,7 +62,8 @@
         if (!/\/(?:jpeg|jpg|png)/i.test(file.type)) return;
         var reader = new FileReader();
         reader.onload = function() {
-            previewer.src = this.result;
+            document.getElementById('imagepreview').innerHTML = '<img src= "' + this.result + '" style="width:100%;"/>';
+//            previewer.src = this.result;
         };
         reader.readAsDataURL(file);
         

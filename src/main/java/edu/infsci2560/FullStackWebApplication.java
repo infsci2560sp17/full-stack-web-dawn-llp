@@ -34,11 +34,11 @@ public class FullStackWebApplication {
         
         
         UsersRepository URrepository = ctx.getBean(UsersRepository.class);
-        Long[] historyid = {new Long(12306),new Long(12580), new Long(10086), new Long(10010)};
+        Long[] historyid = {new Long(12306)};
         URrepository.save(new LipicUsers(1L, "Shaylee-Li", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
         URrepository.save(new LipicUsers(null, "Shaylee-Al", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
         URrepository.save(new LipicUsers(new Long(15), "Shaylee-Ba", "pass","shalyee@gmail.com","09/20/2017",historyid,false));
-        URrepository.save(new LipicUsers(new Long(2), "Shaylee-Zr", "pass","shalyee@gmail.com","09/20/2017",historyid,false));
+        URrepository.save(new LipicUsers(new Long(2), "11", "11","shalyee@gmail.com","09/20/2017",historyid,false));
         
         PalettesRepository PaRrepository = ctx.getBean(PalettesRepository.class);
         
@@ -62,9 +62,9 @@ public class FullStackWebApplication {
                                             Pa_colors,                      //colors[]
                                             r.nextInt(99),          //numLikes
                                             r.nextInt(99),              //numDislikes
-                                            String.valueOf(r.nextInt(999)),      //kuler_rating
-                                            String.valueOf(r.nextInt(999)),    //cl_rating
-                                            "Unknow Author",            //author
+                                            String.valueOf(r.nextInt(10)),      //kuler_rating
+                                            String.valueOf(r.nextInt(10)),    //cl_rating
+                                            "mystery",            //author
                                             "10/11/2020",                   //dateCreated
                                             new Long(r.nextInt(9999))   //userFirst
                                             ));

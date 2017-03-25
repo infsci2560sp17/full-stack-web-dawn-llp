@@ -15,7 +15,7 @@ public class LipicPalettes {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paletteId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String kuler_id;
     private String cl_id;
