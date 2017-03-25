@@ -15,7 +15,7 @@ public class LipicPalettes {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paletteId")
     private Long id;
     private String kuler_id;
     private String cl_id;
@@ -35,8 +35,8 @@ public class LipicPalettes {
         this.kuler_id = null;
         this.cl_id = null;
         this.colors = null;
-        this.numLikes = -1;
-        this.numDislikes = -1;
+        this.numLikes = 0;
+        this.numDislikes = 0;
         this.kuler_rating = null;
         this.cl_rating = null;
         this.author = null;
@@ -86,16 +86,16 @@ public class LipicPalettes {
     public void setNumLikes(int numLikes){
         this.numLikes = numLikes;
     }
-    public void like(){
-        this.numLikes = this.numLikes + 1;
+    public int like(){
+        return(this.numLikes = this.numLikes + 1);
     }
     
     public int getNumDislikes(){return numDislikes;}
     public void setNumDislikes(int numDislikes){
         this.numDislikes = numDislikes;
     }
-    public void dislike(){
-        this.numDislikes = this.numDislikes + 1;
+    public int dislike(){
+        return(this.numDislikes = this.numDislikes + 1);
     }
     
     public String getKuler_rating() {return kuler_rating;}

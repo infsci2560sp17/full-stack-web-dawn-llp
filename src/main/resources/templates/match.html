@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
     <body>
         <div class="container">
@@ -46,8 +46,8 @@
 </table>
 </div>
 
-	<div> <button class="btn btn-info btn-block">Save Your Result</button>
-	<button class="btn btn-default btn-block" onclick="{location.href='home.html'}">Test a New Picture</button> 
+	<div>
+	<button class="btn btn-info btn-block" onclick="{location.href='home.html'}">Test a New Picture</button>
 	</div>
 <div class="center-block" style="height:40px"></div>
 <div class="center-block" style="height:90px">
@@ -60,9 +60,27 @@
 </tr>
 </table>
 </div>
-<div>
+<div class="center-block">
 <h4 class="text-center">Select best similar palette for your picture from Kuler!
 			</h4>
+<div class="center-block" style="height:30px"></div>
+<h4 class="text-center">Do you like this palette? </h4>
+<span class="pull-left">
+          <a href="javascript:void(0)" onclick="like()"
+            class="btn btn-default">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Like
+          </a>
+                <span th:text="{$LipicPalettes.numLikes}"></span>
+            </a>
+</span>
+<span class="pull-right">
+            <a href="javascript:void(0)" onclick="dislike()"
+              class="btn btn-default">
+              <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+            </a>
+                  <span th:text="{$LipicPalettes.numDislikes}"></span>
+              </a>
+</span>
 </div>
 
 <div class="center-block" style="height:100px"></div>
@@ -72,6 +90,28 @@
 
 	</div>
         </div>
-        
+
+<script type="text/javascript">
+//rewite based on scripts from https://my.oschina.net/skyheng/blog/725421
+            function like() {
+                $.ajax({
+                    url: '/updatelikes/{id}',
+                    type: 'POST',
+                    cache: false,
+                    timeout: 600000,
+                    data: JSON.stringify(LipicPalettes)
+                });
+            }
+            function dislike() {
+                $.ajax({
+                    url: '/updatedislikes/{id}',
+                    type: 'POST',
+                    cache: false,
+                    timeout: 600000,
+                    data: JSON.stringify(LipicPalettes)
+                });
+            }
+</script>
+
  </body>
 </html>
