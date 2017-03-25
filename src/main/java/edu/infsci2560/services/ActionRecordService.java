@@ -5,8 +5,8 @@
  */
 package edu.infsci2560.services;
 
-import edu.infsci2560.models.LipicPalettes;
-import edu.infsci2560.repositories.PalettesRepository;
+import edu.infsci2560.models.LipicReqActions;
+import edu.infsci2560.repositories.ReqActionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,27 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lili8
  */
 @RestController
-@RequestMapping("/public/api/palettes")
-public class PalettesService {
+@RequestMapping("/public/api/actions")
+public class ActionRecordService {
 
     @Autowired
-    private PalettesRepository repository;
+    private ReqActionsRepository repository;
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Iterable<LipicPalettes>> list() {
+    public ResponseEntity<Iterable<LipicReqActions>> list() {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findAll(), headers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<LipicPalettes> list(@PathVariable("id") Long id) {
+    public ResponseEntity<LipicReqActions> list(@PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
     }
 
-  @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
-    public ResponseEntity<LipicPalettes> create(@RequestBody LipicPalettes palette) {
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
+    public ResponseEntity<LipicReqActions> create(@RequestBody LipicReqActions actions) {
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.save(palette), headers, HttpStatus.OK);
-    } 
+        return new ResponseEntity<>(repository.save(actions), headers, HttpStatus.OK);
+    }
 }

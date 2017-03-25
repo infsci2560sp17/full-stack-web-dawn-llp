@@ -25,7 +25,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/pictures").setViewName("pictures");
         registry.addViewController("/picupload").setViewName("picupload");
         registry.addViewController("/PicataResult").setViewName("PicataResult");
-        //pictures add 02/09
+     //   registry.addViewController("/actions").setViewName("actions");
+        registry.addViewController("/history").setViewName("history");
+        registry.addViewController("/users").setViewName("users");
     }
     
 //    @Bean
