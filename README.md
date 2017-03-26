@@ -1,4 +1,4 @@
-# ColorSense
+# LiPic
 
 1. What is the proposed name for your Web application?
     - LiPic
@@ -56,21 +56,22 @@ TODO : Please list key features of your project.
 
 ### Draft
 Plan 1
-
-![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan1.png)
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan1.png)
 
 Plan 2
-
-![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan2.png)
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan2.png)
 
 
 ### Landing Page
 
-Invite users to test their pictures ![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/homepage.png)
+Invite users to test their pictures 
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/homepage.png)
 
 ### User Input Form
 
-1.Upload picture ![](https://.../image.jpg)
+1.Upload picture
+
+![](https://.../image.jpg)
 
 2.Input username and password to login.
 
@@ -113,16 +114,6 @@ A JSON contains information of this palette.
 
 ##### XML Response
 - NA
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<PhotoTags>
-    <photoId>123456</PhotoId>
-        <tags>
-            <tag>cute</tag>
-            <tag>puppy</tag>
-        </tags>
-</PhotoTags>
-```
 
 ## Technologies Used
 
