@@ -56,16 +56,16 @@ TODO : Please list key features of your project.
 
 ### Draft
 Plan 1
-<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan1.png)
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/plan1.png)
 
 Plan 2
-<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan2.png)
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/plan2%20.png)
 
 
 ### Landing Page
 
 Invite users to test their pictures 
-<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/homepage.png)
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/homepage.png)
 
 ### User Input Form
 
