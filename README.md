@@ -1,7 +1,7 @@
 # ColorSense
 
 1. What is the proposed name for your Web application?
-    - ColorSense
+    - LiPic
 2. Who is the target audience for your Web application?
     - Ordinary people who want to have better color match in daily life(choosing clothes etc) or work(design keynote/ppt etc).
 3. What problem is it intended to solve for the target audience?
@@ -14,8 +14,8 @@
     - Users need to create their account to use the service.
     - Users upload their pictures to get similar palette recommendation. These records are stored for them.
     - Users can delete past uploads.
-    - Probably use 3rd party API to extract image property.
-    - Probably use 3rd party API to import "good" palette examples.
+    - Use 3rd party API to extract image property.
+    - Use 3rd party API to import "good" palette examples.
     - Show recommendation result to users by self-defined functions. 
 5. Why is your proposed Web application unique or creative beyond simply meeting the minimum requirements?
      - My site recommends palettes to users according to their original works. First, people get a simple start. 
@@ -33,70 +33,86 @@ Travis Build
 [Changelog](CHANGELOG.md)
 
 ## Web Site
-<br>[ColorSense](https://colorsense.herokuapp.com/)
+<br>[LiPic](https://colorsense.herokuapp.com/)
 
 ## Key Features
 
 TODO : Please list key features of your project.
 
 * Key Feature 1 
+    + Extract image file dominant colors and show to users.
 * Key Feature 2
-* Key Feature N
+    + Recommend Kuler palette to users according to palette similarity.
+* Key Feature 3
+    + User can "like" or "dislike" recommended palette.
+* Key Feature 4
+    + Show list of all palettes.
+* Key Feature 5
+    + Show list of personal history. 
+* Key Feature 6
+    + Show list of users. 
 
 ## Project Details
 
+### Draft
+Plan 1
+
+![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan1.png)
+
+Plan 2
+
+![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/plan2.png)
+
+
 ### Landing Page
 
-TODO : please provide a description of your landing page inluding a screen shot ![](https://.../image.JPG)
+Invite users to test their pictures ![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/homepage.png)
 
 ### User Input Form
 
-TODO : please provide a description of at least 1 user input form including a screen shot ![](https://.../image.jpg)
+1.Upload picture ![](https://.../image.jpg)
+
+2.Input username and password to login.
 
 ## API
 
-TODO : please provide a description of at least 1 API including a sample of request data and response data in both XML and JSON format.
+PalettesService maps LipicPalettes information, having GET, POST, DELETE and 2 self-defined functions to update like/dislike numbers.
 
 ### API Method 1
 
-    POST public/api/pictures(/:id)
+    GET public/api/palettes/{id}
 
 #### Parameters
 
-- **id** _(required)_ — The Photo ID for every upload.
+- NA
 
 #### Response
 
-A JSON or XMLobject containing the PhotoID and list of attributes.
+A JSON contains information of this palette.
 
 #### Errors
 
-All known errors cause the resource to return HTTP error code header together with a JSON array containing at least 'status' and 'error' keys describing the source of error.
-
-- **404 Not Found** — The photo was not found.
+- NA a blank page
 
 #### Example
 
 ##### Request
 
-    POST /v1/photos/123456/tags
+    https://colorsense.herokuapp.com/public/api/palettes/12
 
 ##### Body
 
-    tags=cute,puppy
+    tags=cute,puppy ?? what does it mean?
 
 
 ##### JSON Response
 
 ```json
-{
-    "photoId": 123456,
-    "tags": ["cute", "puppy"]
-}
+{"id":12,"kuler_id":"77179","cl_id":"58617","colors":["D0FA14","E0CD3F","3DD3F6","BC9F86","798BB3"],"numLikes":12,"numDislikes":66,"kuler_rating":"2","cl_rating":"5","author":"mystery","dateCreated":"10/11/2020","userFirst":1842}
 ```
 
 ##### XML Response
-
+- NA
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <PhotoTags>
@@ -115,3 +131,4 @@ TODO : List all technologies used in your project
 - [Spring Boot](https://projects.spring.io/spring-boot/) - Takes an opinionated view of building production-ready Spring applications.
 - [Thymleaf](http://www.thymeleaf.org/) - Thymeleaf is a modern server-side Java template engine for both web and standalone environments.
 - [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool.
+- [Bootstrap](http://getbootstrap.com/getting-started/) - Bootstrap is a free and open-source front-end web framework for designing websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. 
