@@ -92,7 +92,7 @@ PalettesService maps LipicPalettes information, having GET, POST, DELETE and 2 s
 
 #### Parameters
 
-- {id}
+    - {id}
 
 #### Response
 
@@ -108,11 +108,6 @@ A JSON contains information of a palette by {id} or all palettes.
 
     https://colorsense.herokuapp.com/public/api/palettes/12
 
-##### Body
-
-    tags=cute,puppy ?? what does it mean?
-
-
 ##### JSON Response
 
 ```json
@@ -122,14 +117,13 @@ A JSON contains information of a palette by {id} or all palettes.
 ##### XML Response
 - NA
 
-
 ### API Method 2
 
     DELETE public/api/palettes/{id}
 
 #### Parameters
 
-- {id}
+    - {id}
 
 #### Response
 
@@ -137,13 +131,20 @@ Delete a palette by id. Can be checked by view "/palettes" or api get public/api
 
 ### API Method 3
 
-   public/api/palettes/ajax/like/{id}
+    public/api/palettes/ajax/like/{id}
 
 #### Parameters
 
-- [id}
+    - {id}
+#### Body
+
+    - numLikes=77(number of likes)
+#### Request
+
+    - /palettes/ajax/like/26?numLikes=77)
 
 #### Response
+    - json return: {"likes":78, "dislikes":20}
 
 Add 1 to numLikes of a palette by id
 
@@ -152,11 +153,15 @@ Add 1 to numLikes of a palette by id
    public/api/palettes/ajax/dislike/{id}
 
 #### Parameters
+    - {id}
+#### Body
 
-- [id}
+    - numDislikes=20(number of likes)
+#### Request
 
+    - /palettes/ajax/like/26?numDislikes=20)
 #### Response
-
+    - json return: {"likes":78, "dislikes":21}
 Add 1 to numDislikes of a palette by id
 
 ## Technologies Used
@@ -167,3 +172,5 @@ TODO : List all technologies used in your project
 - [Thymleaf](http://www.thymeleaf.org/) - Thymeleaf is a modern server-side Java template engine for both web and standalone environments.
 - [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool.
 - [Bootstrap](http://getbootstrap.com/getting-started/) - Bootstrap is a free and open-source front-end web framework for designing websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. 
+- [Gson](https://sites.google.com/site/gson/gson-user-guide) - Gson is a Java library that can be used to convert Java Objects into their JSON representation. 
+- [Thumbnailator](http://projects.coobird.net/thumbnailator) - Using Thumbnailator simplifies the process of resizing images.
