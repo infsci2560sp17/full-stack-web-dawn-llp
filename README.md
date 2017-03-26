@@ -69,11 +69,18 @@ Invite users to test their pictures
 
 ### User Input Form
 
-1.Upload picture
+1. Upload picture
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/homepage.png)
 
-![](https://.../image.jpg)
+2. Input username and password to login.
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/login.png)
 
-2.Input username and password to login.
+### Other PAGES
+1. Match Result
+<br>![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/result.png)
+
+2. All Palettes
+<br> ![](https://github.com/infsci2560sp17/full-stack-web-dawn-llp/blob/master/paletteslist.png)
 
 ## API
 
@@ -85,11 +92,11 @@ PalettesService maps LipicPalettes information, having GET, POST, DELETE and 2 s
 
 #### Parameters
 
-- NA
+- {id}
 
 #### Response
 
-A JSON contains information of this palette.
+A JSON contains information of a palette by {id} or all palettes.
 
 #### Errors
 
@@ -114,6 +121,43 @@ A JSON contains information of this palette.
 
 ##### XML Response
 - NA
+
+
+### API Method 2
+
+    DELETE public/api/palettes/{id}
+
+#### Parameters
+
+- {id}
+
+#### Response
+
+Delete a palette by id. Can be checked by view "/palettes" or api get public/api/palettes
+
+### API Method 3
+
+   public/api/palettes/ajax/like/{id}
+
+#### Parameters
+
+- [id}
+
+#### Response
+
+Add 1 to numLikes of a palette by id
+
+### API Method 4
+
+   public/api/palettes/ajax/dislike/{id}
+
+#### Parameters
+
+- [id}
+
+#### Response
+
+Add 1 to numDislikes of a palette by id
 
 ## Technologies Used
 
