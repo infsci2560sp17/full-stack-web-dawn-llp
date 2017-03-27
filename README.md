@@ -127,7 +127,7 @@ A JSON contains information of a palette by {id} or all palettes.
 
 #### Response
 
-Delete a palette by id. Can be checked by view "/palettes" or api get public/api/palettes
+Delete a palette by id.
 
 ### API Method 3
 
@@ -141,12 +141,12 @@ Delete a palette by id. Can be checked by view "/palettes" or api get public/api
     - numLikes=77(number of likes)
 #### Request
 
-    - /palettes/ajax/like/26?numLikes=77)
+    - ../public/api/palettes/ajax/like/26?numLikes=77)
 
 #### Response
     - json return: {"likes":78, "dislikes":20}
 
-Add 1 to numLikes of a palette by id
+Add 1 to numLikes of a palette by id when numLikes matches previous records.
 
 ### API Method 4
 
@@ -159,10 +159,10 @@ Add 1 to numLikes of a palette by id
     - numDislikes=20(number of likes)
 #### Request
 
-    - /palettes/ajax/like/26?numDislikes=20)
+    - ../public/api/palettes/ajax/like/26?numDislikes=20)
 #### Response
     - json return: {"likes":78, "dislikes":21}
-Add 1 to numDislikes of a palette by id
+Add 1 to numDislikes of a palette by id when numDislikes matches previous records.
 
 ## Technologies Used
 
