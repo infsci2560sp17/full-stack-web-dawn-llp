@@ -79,7 +79,7 @@ public class LoginIT {
 
 	@Test
 	public void testLogin() throws Exception {		
-		ResponseEntity<String> entity = LoginHelper.login(this.restTemplate, "/login", "user", "password");
+		ResponseEntity<String> entity = LoginHelper.login(this.restTemplate, "/login", "Shaylee-Li", "pass");
                 
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
 		assertThat(entity.getHeaders().getLocation().toString()).endsWith(this.port + "/");
