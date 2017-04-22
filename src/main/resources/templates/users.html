@@ -25,10 +25,14 @@
       <li class="nav-item"><a href="/actions">Your Records</a></li>
       <li class="nav-item"><a href="/users">Community</a></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              </ul>
+    <ul class="nav navbar-nav navbar-right" data-th-switch="${#authorization.expression('isAuthenticated()')}">
+
+        <li data-th-case="${false}" class="nav-item"><a href="/signup" ><span class="glyphicon glyphicon-pencil" > SignUp</span></a></li>
+        <li data-th-case="${true}" class="nav-item"><a href="/"><span class="glyphicon glyphicon-leaf" data-th-inline="text"> Hello,[[${#httpServletRequest.remoteUser}]]</span></a></li>
+        <li data-th-case="*" class="nav-item"><a href="/"><span class="glyphicon glyphicon-warning-sign" data-th-inline="text"> Error</span></a></li>
+
+     <li><a href="/logout"><span class="glyphicon glyphicon-log-in" ></span></a></li>
+    </ul>
             </div>
           </nav>
           <div class="center-block" style="height:30px"></div>
@@ -38,7 +42,7 @@
               <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Password</th>
+           <!--     <th>Password</th> -->
                 <th>Email</th>
                 <th>DateCreated</th>
                 <th>HistroyId</th>
@@ -49,7 +53,7 @@
               <tr data-th-each="user : ${users}">
                 <td data-th-text="${user.id}"></td>
                 <td data-th-text="${user.name}"></td>
-                <td data-th-text="${user.password}"></td>
+          <!--      <td data-th-text="${user.password}"></td> -->
                 <td data-th-text="${user.email}"></td>
                 <td data-th-text="${user.dateCreated}"></td>
                 <td>
@@ -70,5 +74,8 @@
     </div>
   </div>
  </body>
+ <footer>  <hr />
+<p class="text-center"> <a href="mailto:lil112@pitt.edu" target="_top">Liping Li</a>'s course project, 2017</p>
+</footer>
 </html>
 

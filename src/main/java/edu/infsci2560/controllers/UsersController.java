@@ -1,9 +1,6 @@
 package edu.infsci2560.controllers;
 
 
-
-
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -53,14 +50,14 @@ public class UsersController {
         return new ModelAndView("users","users",repository.findOne(id));
     }
     
-    @RequestMapping(value = "/users/add" ,method = RequestMethod.POST)  //user sign up
+   @RequestMapping(value = "/users/add" ,method = RequestMethod.POST)  //user sign up
     public ModelAndView SignUp(@RequestParam("username") String username,
                                 @RequestParam("password") String password,
                                 @RequestParam("email") String email) {
                                     
         LipicUsers user = new LipicUsers(username,password,email);
         return new ModelAndView("users", "users", repository.findOne(repository.save(user).getId()));
-    }
+    } 
     
     @RequestMapping(value = "/users/delete/{id}")
     public ModelAndView DeleteUserById(@PathVariable("id") Long id) {
@@ -68,11 +65,13 @@ public class UsersController {
         return new ModelAndView("users","users",repository.findAll());
     }
     
-    
-//    @RequestMapping(value = "users/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-//    public ModelAndView create(@ModelAttribute @Valid LipicUsers user, BindingResult result) {
-//      repository.save(user);
-//        return new ModelAndView("users", "users", repository.findAll());
-//    }
+ 
+ /*
+    @RequestMapping(value = "users/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView create(@ModelAttribute @Valid LipicUsers user, BindingResult result) {
+      repository.save(user);
+        return new ModelAndView("users", "users", repository.findAll());
+    }
+    */
     
 }

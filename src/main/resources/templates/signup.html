@@ -7,8 +7,8 @@
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <body>
     <div class="container">
@@ -33,48 +33,38 @@
 
      <li><a href="/logout"><span class="glyphicon glyphicon-log-in" ></span></a></li>
     </ul>
-    </div>
+  </div>
 </nav>
 	<div class="center-block" style="height:50px"></div>
+	</div>
 <div class="col-md-3 column"></div>
 <div class="col-md-6 column">
-    <h4 class="text-center">
-    Get your picture's palette and grade it.  Are you ready?</h4>
-    <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
-                  <div><input type="file" id="filechooser" name="image" class="btn btn-default btn-block" /></div>
-              <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"></div>
-              <p class="text-center" style="height:50px">png, jpg, gif less than 1M</p>
-    <div class="center-block" style="height:50px"></div>
-              <div> <button class="btn btn-info btn-block" type="submit">TEST</button> 
-    <h4 class="text-center">Select best similar palette for your picture from Kuler!</h4>
-    </div>
-    </form>
+
+<div class="center-block" style="height:30px"></div>
+<h3>Create an account</h3>
+<form data-th-action="@{/users/add}" name="SignUp" method="post">
+<div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" name="username" class="form-control" />
+  </div>
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" />
+  </div>
+  <div>
+      <label for="email">Email:</label>
+    <input type="email" class="form-control" name="email" />
+  </div>
+    <div class="center-block" style="height:30px"></div>
+    <div><input type="submit" class="btn btn-info btn-block" value="Sign UP"/></div>
+</form>
+
+    <div class="center-block" style="height:100px"></div>
 </div>
-<div class="center-block" style="height:200px"></div>
 	<div class="col-md-3 column"></div>
 </div>
-    </div>
-    </div>
-        <script>
-//document.write("js");
-    var filechooser = document.getElementById('filechooser');
-//    var previewer = document.getElementById('previewer');
-    // 200 KB sizelimit
-    //var maxsize = 200 * 1024;
-    filechooser.onchange = function() {
-        var files = this.files;
-        var file = files[0];
-        // accept jpeg, jpg, png 
-        if (!/\/(?:jpeg|jpg|png)/i.test(file.type)) return;
-        var reader = new FileReader();
-        reader.onload = function() {
-            document.getElementById('imagepreview').innerHTML = '<img src= "' + this.result + '" style="width:100%;"/>';
-//            previewer.src = this.result;
-        };
-        reader.readAsDataURL(file);
-        
-    };
-</script>
+</div>
+
 </body>
 <footer>  <hr />
 <p class="text-center"> <a href="mailto:lil112@pitt.edu" target="_top">Liping Li</a>'s course project, 2017</p>

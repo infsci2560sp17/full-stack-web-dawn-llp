@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -19,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/about.html","/api","/match","/users","/palettes","/files","/files/**","/public/**").permitAll()
+                .antMatchers("/", "/home","/signup", "/about.html","/logout","/match","/palettes","/files","/files/**","/public/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -27,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+               .logoutSuccessUrl("/login")
                 .permitAll();
             
 //        http.csrf().disable();
@@ -39,4 +42,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .withUser("1").password("1").roles("USER");
         auth.authenticationProvider(authenticationProvider);
     }
+    
 }
+

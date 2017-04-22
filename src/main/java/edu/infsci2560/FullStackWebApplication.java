@@ -2,9 +2,6 @@ package edu.infsci2560;
 
 import java.util.Random;
 
-import edu.infsci2560.models.Picture;
-import edu.infsci2560.repositories.PictureRepository;
-
 import edu.infsci2560.models.LipicUsers;
 import edu.infsci2560.repositories.UsersRepository;
 
@@ -26,13 +23,11 @@ public class FullStackWebApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
 
+
+///-----------------------------------------------fill random data START------------------------------------------
         ///  fill database
         Random r = new Random();
-        
-        PictureRepository repository = ctx.getBean(PictureRepository.class);
-        repository.save(new Picture(1L, "P90X", "#F23344","green","alex","#223355","xhtlm","4.5"));
-        
-        
+                
         UsersRepository URrepository = ctx.getBean(UsersRepository.class);
         Long[] historyid = {new Long(12306)};
         URrepository.save(new LipicUsers(1L, "Shaylee-Li", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
@@ -69,6 +64,9 @@ public class FullStackWebApplication {
                                             new Long(r.nextInt(9999))   //userFirst
                                             ));
         }
+        
+        //--------------------------------------------fill random data END---------------------------------------------
+        
     }
 
 //    @Bean
