@@ -44,7 +44,7 @@ public class LipicUsers {
 	    
 	    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	    this.dateCreated = formatter.format(new Date());
-	    Long[] hId = {new Long(999)};
+	    Long[] hId = {new Long(0)};
 	    this.historyId = hId;
 	    this.isAdmin = false;
 	}

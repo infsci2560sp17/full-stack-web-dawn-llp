@@ -50,15 +50,15 @@ public class UsersController {
         return new ModelAndView("users","users",repository.findOne(id));
     }
     
-   @RequestMapping(value = "/users/add" ,method = RequestMethod.POST)  //user sign up
+   @RequestMapping(value = "/users/add", method = RequestMethod.POST)  //user sign up
     public ModelAndView SignUp(@RequestParam("username") String username,
                                 @RequestParam("password") String password,
-                                @RequestParam("email") String email) {
-                                    
+                                @RequestParam("email") String email) {                         
         LipicUsers user = new LipicUsers(username,password,email);
-        return new ModelAndView("users", "users", repository.findOne(repository.save(user).getId()));
+        return new ModelAndView("users", "users", repository.save(user));
     } 
-    
+
+
     @RequestMapping(value = "/users/delete/{id}")
     public ModelAndView DeleteUserById(@PathVariable("id") Long id) {
         repository.delete(id);

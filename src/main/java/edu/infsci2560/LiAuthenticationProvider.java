@@ -32,6 +32,7 @@ public class LiAuthenticationProvider implements AuthenticationProvider {
         
         System.out.println(username);
         System.out.println(password);
+
         
         if (repository.findByName(username) == null) {
             System.out.println("User Not Found!");
