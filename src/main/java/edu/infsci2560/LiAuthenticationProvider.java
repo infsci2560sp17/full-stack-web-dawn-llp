@@ -33,34 +33,46 @@ public class LiAuthenticationProvider implements AuthenticationProvider {
         System.out.println(username);
         System.out.println(password);
 
-        
+/*        
         if (repository.findByName(username) == null) {
             System.out.println("User Not Found!");
             throw new UsernameNotFoundException("User Not Found");
             }
         
-        LipicUsers userInfo = repository.findByName(username).get(0);  //name is unique;
+*/
+        try{
+            LipicUsers userInfo = repository.findByName(username).get(0);  //name is unique;
+            
+            if (password.equals(userInfo.getPassword())){
+            
+                User user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList(""));
+            
+                if (!userInfo.getIsAdmin()){
+                    System.out.println("ROLE_ADMIN!");
+                    user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));   // logon success return userdetail info
+                } else {
+                    System.out.println("ROLE_USER!");
+                    user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+                }
+            
+                Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
+                return new UsernamePasswordAuthenticationToken(user, password, authorities);
+                
+            } else {
+                //System.out.println("Wrong Password! PW is:" + userInfo.getPassword());
+                throw new BadCredentialsException("Bad Credentials");            
+        }
+        
+        } catch(Exception e) {
+            throw new UsernameNotFoundException("User Not Found");
+        }
+
+        
+        
         
 //        UserDetails userDetials = userService.loadUserByUsername(username);
         
-        if (password.equals(userInfo.getPassword())){
-            
-            User user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList(""));
-            
-            if (!userInfo.getIsAdmin()){
-                System.out.println("ROLE_ADMIN!");
-                user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));   // logon success return userdetail info
-            } else {
-                System.out.println("ROLE_USER!");
-                user = new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
-            }
-            
-            Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
-            return new UsernamePasswordAuthenticationToken(user, password, authorities);
-        } else {
-            System.out.println("Wrong Password! PW is:" + userInfo.getPassword());
-            throw new BadCredentialsException("Bad Credentials");            
-        }
+
 
     }
     @Override

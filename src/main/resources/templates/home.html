@@ -39,7 +39,7 @@
 <div class="col-md-3 column"></div>
 <div class="col-md-6 column">
     <h4 class="text-center">
-    Get your picture's palette and grade it.  Are you ready?</h4>
+    Get your picture's palette.  Are you ready?</h4>
     <form data-th-action="@{/match}" enctype="multipart/form-data" method="post">
                   <div><input type="file" id="filechooser" name="image" class="btn btn-default btn-block" /></div>
               <div id="imagepreview" style="width:500px; margin-top:20px; margin-left:auto; margin-right:auto;"></div>
@@ -57,6 +57,7 @@
     </div>
         <script>
 //document.write("js");
+//http://leonshi.com/2015/11/18/html5-filereader-preview-upload/
     var filechooser = document.getElementById('filechooser');
 //    var previewer = document.getElementById('previewer');
     // 200 KB sizelimit
