@@ -11,9 +11,9 @@
     Extract colors of user-upload pictures, compare them with good palette dataset, rate them with similarity of a good palette, show similar palette recommendation.
     - Learning from similar "good" palette, people can adjust their color selection with a little effort and get a big improvement in terms of color match.
 4. How will it meet the minimum project requirements?
-    - Users need to create their account to use the service.
+    - Visitors can register.
+    - Users need to create their account to see records.
     - Users upload their pictures to get similar palette recommendation. These records are stored for them.
-    - Users can delete past uploads.
     - Use 3rd party API to extract image property.
     - Use 3rd party API to import "good" palette examples.
     - Show recommendation result to users by self-defined functions. 
@@ -37,8 +37,6 @@ Travis Build
 
 ## Key Features
 
-TODO : Please list key features of your project.
-
 * Key Feature 1 
     + Extract image file dominant colors and show to users.
 * Key Feature 2
@@ -50,7 +48,9 @@ TODO : Please list key features of your project.
 * Key Feature 5
     + Show list of personal history. 
 * Key Feature 6
-    + Show list of users. 
+    + Show list of users.
+* Key Feature 7
+    + Register new users.
 
 ## Project Details
 
@@ -100,7 +100,8 @@ A JSON contains information of a palette by {id} or all palettes.
 
 #### Errors
 
-- NA a blank page
+- a blank page for invalid parameter
+- a error page(without mapping) for wrong parameter type
 
 #### Example
 
