@@ -7,6 +7,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - TBD.
 
+## [v1.5] - 2017-04-22
+### Fixed
+- LoginIT.java
+    - Annotated, no confict with Authentication
+### Modified
+- Navigation Bar
+    - Show "Sign Up" or "Hello, user's name" according to login status
+- Footer
+- MvcConfig.java
+    - added signup part
+- FullStackWebApplication.java
+    - delete some initializing data
+- LiAuthenticationProvider.java
+    - Add try for exception
+- WebSecurityConfig.java
+    - Logout and signup access    
+### Added
+- User registeration
+    - signup.html
+    - users/add in controller
+    - WebConfig.java
+
 ## [v1.4.1] - 2017-03-25
 ### Modified
 - README.md
@@ -153,9 +175,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Push to github.
 
 
-[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.4.1...HEAD
-[v1.4.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.4.1...v1.4
-[v1.4]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.4...v1.3.1
+[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.5...HEAD
+[v1.5]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.4.1...v1.5
+[v1.4.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.4...v1.4.1
+[v1.4]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.3.1...v1.4
 [v1.3.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.3...v1.3.1
 [v1.3]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2.1...v1.3
 [v1.2.1]: https://github.com/infsci2560sp17/full-stack-web-dawn-llp/compare/v1.2...v1.2.1
