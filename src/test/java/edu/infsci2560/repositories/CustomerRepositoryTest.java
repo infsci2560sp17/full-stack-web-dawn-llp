@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.infsci2560.repositories;
+/*package edu.infsci2560.repositories;
 
 import edu.infsci2560.models.Customer;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,3 +35,4 @@ public class CustomerRepositoryTest {
         assertThat(findByLastName).extracting(Customer::getLastName).containsOnly(customer.getLastName());
     }
 }
+*/
