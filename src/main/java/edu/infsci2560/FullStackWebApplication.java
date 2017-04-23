@@ -30,16 +30,16 @@ public class FullStackWebApplication {
                 
         UsersRepository URrepository = ctx.getBean(UsersRepository.class);
         Long[] historyid = {new Long(12306)};
-        URrepository.save(new LipicUsers(1L, "Shaylee-Li", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
+     //   URrepository.save(new LipicUsers(1L, "Shaylee-Li", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
         URrepository.save(new LipicUsers(null, "Shaylee-Al", "pass","shalyee@gmail.com","09/20/2017",historyid,true));
-        URrepository.save(new LipicUsers(new Long(15), "Shaylee-Ba", "pass","shalyee@gmail.com","09/20/2017",historyid,false));
+  //      URrepository.save(new LipicUsers(new Long(15), "Shaylee-Ba", "pass","shalyee@gmail.com","09/20/2017",historyid,false));
         URrepository.save(new LipicUsers(new Long(2), "11", "11","shalyee@gmail.com","09/20/2017",historyid,false));
         
         PalettesRepository PaRrepository = ctx.getBean(PalettesRepository.class);
         
         String[] sHex = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 //        String[] Pa_colors = {"1232F1","24A7F1","761B2E","09A7D3","90A6C5","1F3D4A"};
-        for(int i=0;i<25;i++){
+        for(int i=0;i<1;i++){
             
             int num_colors = r.nextInt(6) + 1;  //r = 1~6
             String[] Pa_colors = new String[num_colors];
