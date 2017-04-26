@@ -21,13 +21,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
     - delete some initializing data
 - LiAuthenticationProvider.java
     - Add try for exception
+- LipicUser.java
+    - fixed historyId bug in registration part
 - WebSecurityConfig.java
-    - Logout and signup access    
+    - Logout and signup access
+- users.html
+    - Hide password info
+- palettes.html
+    - Hide unncessary info
 ### Added
 - User registeration
     - signup.html
     - users/add in controller
     - WebConfig.java
+### Deleted
+   - old history.html
+    - old Picture model, controller
 
 ## [v1.4.1] - 2017-03-25
 ### Modified
