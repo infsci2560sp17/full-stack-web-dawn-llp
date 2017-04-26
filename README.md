@@ -100,8 +100,8 @@ A JSON contains information of a palette by {id} or all palettes.
 
 #### Errors
 
-- a blank page for invalid parameter
-- a error page(without mapping) for wrong parameter type
+    - a blank page for invalid parameter
+    - a error page(without mapping) for wrong parameter type
 
 #### Example
 
